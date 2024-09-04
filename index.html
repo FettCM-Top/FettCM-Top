@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FedCM in an Iframe</title>
+    <style>
+        body {
+            background-color: #cda7f2;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 1000px;
+        }
+        iframe {
+            display: block;
+            margin: 0 auto;
+            width: 900px;
+            height: 600px;
+            border: 3px solid black;
+            opacity: 0.5;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Top Page: FettCM-Top.github.io</h1>
+        <h2>IFrame: FettCM.github.io</h2>
+        <iframe
+            id="fedcm"
+            src="https://fettcm.github.io/login"
+            allow="identity-credentials-get"
+        ></iframe>
+        <button onclick="showMessage()">Show Message in Console</button>
+    </div>
+<script>
+  // why no let me print multiple tiiiiimes
+  let ctr = 0;
+
+  function showMessage() {
+    if (ctr % 2 == 0){
+              console.log("Hello from the Top Frame!");
+    }
+    else {
+      console.log("Hello again from the Top Frame!");
+    }
+    ctr++;
+  }
+</script>
+</body>
+</html>
