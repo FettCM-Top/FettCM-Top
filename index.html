@@ -70,18 +70,19 @@
 
   async function fedcmLogin() {
     token = await navigator.credentials.get(
-      {
-          "identity": {
+        {
+            "identity": {
             "providers": [
-              {
+                {
                 "configURL": "https://accounts.google.com/gsi/fedcm.json",
                 "clientId": "117896432379-3n8ilr9ut9nq65ndpo24atgum5mfks1e.apps.googleusercontent.com",
                 "nonce": "1337"
-              }
+                }
             ],
             "context": "signin"
-      }
-   )
+            }
+        }
+    )
 
   
   // token value from IdentityCredential object
