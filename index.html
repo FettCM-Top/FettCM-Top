@@ -27,8 +27,13 @@
             border: 3px solid black;
             opacity: 0.5;
         }
-        button {
+        .button-group {
+            display: flex;
+            justify-content: center;
             margin-top: 20px;
+            gap: 10px;
+        }
+        button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -44,7 +49,10 @@
             src="https://fettcm.github.io/login"
             allow="identity-credentials-get"
         ></iframe>
-        <button onclick="showMessage()">Print Message in Console</button>
+        <div class="button-group">
+            <button onclick="showMessage()">Print Message in Console</button>
+            <button onclick="fedcmLogin()">Login with FedCM</button>
+        </div>
     </div>
 <script>
   // why no let me print multiple tiiiiimes
@@ -58,6 +66,31 @@
       console.log("Hello again from the Top Frame!");
     }
     ctr++;
+  }
+
+  async function fedcmLogin() {
+    token = await navigator.credentials.get(
+      {
+          "identity": {
+            "providers": [
+              {
+                "configURL": "https://accounts.google.com/gsi/fedcm.json",
+                "clientId": "342508061076-mq47slkvmimktvh3ht8lmql4f344ij67.apps.googleusercontent.com",
+                "nonce": "1337"
+              }
+            ],
+            "context": "signin"
+          },
+        "mediation": "required"
+      }
+   )
+
+  
+  // token value from IdentityCredential object
+  jwt = token.token;
+
+  // edit 04-Sept-24
+  console.log("FettCM-Top Page: Token = " + jwt);
   }
 </script>
 </body>
