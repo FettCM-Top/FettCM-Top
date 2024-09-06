@@ -38,6 +38,15 @@
             font-size: 16px;
             cursor: pointer;
         }
+        a.button-link {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -52,10 +61,10 @@
         <div class="button-group">
             <button onclick="showMessage()">Print Message in Console</button>
             <button onclick="fedcmLogin()">Login with FedCM</button>
+            <a href="tos.html" class="button-link">Terms of Services</a>
         </div>
     </div>
 <script>
-  // why no let me print multiple tiiiiimes
   let ctr = 0;
 
   function showMessage() {
@@ -84,11 +93,7 @@
         }
     )
 
-  
-  // token value from IdentityCredential object
   jwt = token.token;
-
-  // edit 04-Sept-24
   console.log("FettCM-Top Page: Token = " + jwt);
   }
 </script>
